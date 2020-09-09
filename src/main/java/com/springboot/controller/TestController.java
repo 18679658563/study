@@ -1,6 +1,5 @@
 package com.springboot.controller;
 
-import com.springboot.mqtt.MqttGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,14 +18,14 @@ import redis.clients.jedis.JedisPool;
 @RequestMapping("/test")
 public class TestController {
 
-    @Autowired
-    private MqttGateway mqttGateway;
-
-    @RequestMapping("/sendMqtt")
-    public String sendMqtt(String sendData) {
-        mqttGateway.sendToMqtt(sendData, "testtopic");
-        return "OK";
-    }
+//    @Autowired
+//    private MqttGateway mqttGateway;
+//
+//    @RequestMapping("/sendMqtt")
+//    public String sendMqtt(String sendData) {
+//        mqttGateway.sendToMqtt(sendData, "testtopic");
+//        return "OK";
+//    }
 
 
     @Autowired
@@ -41,5 +40,10 @@ public class TestController {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @GetMapping
+    public void test(){
+
     }
 }
